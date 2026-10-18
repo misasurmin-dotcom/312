@@ -1,0 +1,127 @@
+/* ====================
+   Стили компонента: Настройки
+   ==================== */
+
+.settings-content {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.settings-section {
+    padding: 15px;
+    background: var(--bg-light-secondary);
+    border-radius: 12px;
+}
+
+.settings-section h4 {
+    color: var(--text-primary);
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.wallpaper-selector {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.wallpaper-option {
+    width: 80px;
+    height: 80px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 3px solid transparent;
+    position: relative;
+}
+
+.wallpaper-option.active {
+    border-color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+.wallpaper-option::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 24px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.wallpaper-option.active::after {
+    opacity: 1;
+}
+
+.theme-selector {
+    display: flex;
+    gap: 10px;
+}
+
+.theme-option {
+    padding: 10px 20px;
+    border: 2px solid var(--bg-light-secondary);
+    border-radius: 8px;
+    background: var(--bg-light);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+.theme-option.active {
+    border-color: var(--primary-color);
+    background: var(--bg-light-secondary);
+}
+
+.toggle-switch {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.toggle-slider {
+    position: relative;
+    width: 50px;
+    height: 24px;
+    background: var(--bg-light-secondary);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.toggle-slider::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: var(--bg-light);
+    border-radius: 50%;
+    top: 2px;
+    left: 2px;
+    transition: all 0.3s ease;
+}
+
+.toggle-switch input:checked + .toggle-slider {
+    background: var(--primary-color);
+}
+
+.toggle-switch input:checked + .toggle-slider::before {
+    transform: translateX(26px);
+}
+
+.toggle-slider::after {
+    content: 'OFF';
+    position: absolute;
+    right: 4px;
+    font-size: 10px;
+    color: var(--text-secondary);
+}
+
+.toggle-switch input:checked + .toggle-slider::after {
+    content: 'ON';
+    left: 4px;
+}

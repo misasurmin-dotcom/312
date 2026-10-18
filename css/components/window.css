@@ -1,0 +1,103 @@
+/* ====================
+   Стили компонента: Окна
+   ==================== */
+
+.window {
+    position: absolute;
+    background: var(--bg-light);
+    border-radius: var(--window-radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+    min-height: 200px;
+    resize: both;
+}
+
+.window.dark-mode {
+    background: var(--bg-dark-secondary);
+}
+
+.window-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background: var(--bg-light-secondary);
+    border-bottom: 1px solid var(--bg-light-secondary);
+    cursor: grab;
+    transition: background 0.3s ease;
+}
+
+.window.dark-mode .window-header {
+    background: var(--bg-dark-secondary);
+}
+
+.window-header:active {
+    cursor: grabbing;
+}
+
+.window-header h3 {
+    color: var(--text-primary);
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.window.dark-mode .window-header h3 {
+    color: var(--text-light);
+}
+
+.close-btn,
+.minimize-btn,
+.maximize-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    width: 28px;
+    height: 28px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.close-btn {
+    color: var(--error-color);
+}
+
+.close-btn:hover {
+    background: rgba(245, 87, 108, 0.2);
+}
+
+.minimize-btn:hover {
+    background: rgba(255, 225, 64, 0.2);
+    color: var(--warning-color);
+}
+
+.maximize-btn:hover {
+    background: rgba(67, 233, 123, 0.2);
+    color: var(--success-color);
+}
+
+.window-content {
+    flex: 1;
+    overflow: auto;
+    padding: 20px;
+    position: relative;
+}
+
+.window-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10000;
+}
+
+.window.focused {
+    box-shadow: 0 8px 40px rgba(102, 126, 234, 0.5);
+    border: 2px solid var(--primary-color);
+}

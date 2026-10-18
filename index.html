@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebOS - Ваша операционная система</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/components/window.css">
+    <link rel="stylesheet" href="css/components/taskbar.css">
+    <link rel="stylesheet" href="css/components/desktop.css">
+    <link rel="stylesheet" href="css/components/filemanager.css">
+    <link rel="stylesheet" href="css/components/player.css">
+    <link rel="stylesheet" href="css/components/IDE.css">
+    <link rel="stylesheet" href="css/components/browser.css">
+    <link rel="stylesheet" href="css/components/chat.css">
+    <link rel="stylesheet" href="css/components/settings.css">
+</head>
+<body>
+    <!-- Login/Registration Screen -->
+    <div id="auth-screen" class="auth-screen">
+        <div class="auth-container">
+            <div class="auth-card">
+                <div class="logo">
+                    <div class="logo-icon"></div>
+                    <h1>WebOS</h1>
+                </div>
+                <div class="auth-tabs">
+                    <button class="auth-tab active" data-tab="login">Вход</button>
+                    <button class="auth-tab" data-tab="register">Регистрация</button>
+                </div>
+                <div class="auth-content">
+                    <form id="login-form" class="auth-form active">
+                        <input type="text" id="login-username" placeholder="Имя пользователя" required>
+                        <input type="password" id="login-password" placeholder="Пароль" required>
+                        <button type="submit" class="btn-primary">Войти</button>
+                        <div class="auth-footer">
+                            <label><input type="checkbox" id="remember-me"> Запомнить меня</label>
+                        </div>
+                    </form>
+                    <form id="register-form" class="auth-form">
+                        <input type="text" id="reg-username" placeholder="Имя пользователя" required>
+                        <input type="email" id="reg-email" placeholder="Email" required>
+                        <input type="password" id="reg-password" placeholder="Пароль" required>
+                        <input type="password" id="reg-confirm" placeholder="Подтверждение" required>
+                        <button type="submit" class="btn-primary">Зарегистрироваться</button>
+                    </form>
+                </div>
+                <div class="social-auth">
+                    <button class="btn-social btn-telegram">
+                        <span class="icon">✈️</span>
+                        Telegram
+                    </button>
+                    <button class="btn-social btn-discord">
+                        <span class="icon">💬</span>
+                        Discord
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main OS Interface -->
+    <div id="os-interface" class="os-interface" style="display: none;">
+        <!-- Desktop -->
+        <div id="desktop" class="desktop">
+            <div id="desktop-icons" class="desktop-icons">
+                <div class="icon" data-app="filemanager" title="Проводник">
+                    <div class="icon-img">📁</div>
+                    <span>Проводник</span>
+                </div>
+                <div class="icon" data-app="player" title="Медиаплеер">
+                    <div class="icon-img">🎵</div>
+                    <span>Плеер</span>
+                </div>
+                <div class="icon" data-app="browser" title="Браузер">
+                    <div class="icon-img">🌐</div>
+                    <span>Браузер</span>
+                </div>
+                <div class="icon" data-app="ide" title="Редактор кода">
+                    <div class="icon-img">💻</div>
+                    <span>Код</span>
+                </div>
+                <div class="icon" data-app="chat-telegram" title="Telegram">
+                    <div class="icon-img">✈️</div>
+                    <span>Telegram</span>
+                </div>
+                <div class="icon" data-app="chat-discord" title="Discord">
+                    <div class="icon-img">💬</div>
+                    <span>Discord</span>
+                </div>
+                <div class="icon" data-app="settings" title="Настройки">
+                    <div class="icon-img">⚙️</div>
+                    <span>Настройки</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Windows Container -->
+        <div id="windows-container" class="windows-container"></div>
+
+        <!-- Taskbar -->
+        <div id="taskbar" class="taskbar">
+            <div class="taskbar-start">
+                <div class="start-btn">
+                    <div class="start-icon"></div>
+                </div>
+            </div>
+            <div class="taskbar-apps" id="taskbar-apps"></div>
+            <div class="taskbar-tray">
+                <div class="tray-item" title="Сеть">📶</div>
+                <div class="tray-item" title="Громкость">🔊</div>
+                <div class="tray-item" id="clock">12:00</div>
+            </div>
+        </div>
+
+        <!-- Start Menu -->
+        <div id="start-menu" class="start-menu">
+            <div class="start-content">
+                <div class="start-search">
+                    <span>🔍</span>
+                    <input type="text" placeholder="Поиск...">
+                </div>
+                <div class="start-list">
+                    <h3>Часто используемые</h3>
+                    <div class="start-item" data-app="filemanager">📁 Проводник</div>
+                    <div class="start-item" data-app="player">🎵 Плеер</div>
+                    <div class="start-item" data-app="browser">🌐 Браузер</div>
+                    <div class="start-item" data-app="ide">💻 Код</div>
+                    <h3>Социальные</h3>
+                    <div class="start-item" data-app="chat-telegram">✈️ Telegram</div>
+                    <div class="start-item" data-app="chat-discord">💬 Discord</div>
+                    <h3>Система</h3>
+                    <div class="start-item" data-app="settings">⚙️ Настройки</div>
+                </div>
+            </div>
+            <div class="start-footer">
+                <div class="power-btn">
+                    <span>⏻</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Settings Modal -->
+        <div id="settings-modal" class="window modal">
+            <div class="window-content">
+                <div class="window-header">
+                    <h3>Настройки</h3>
+                    <button class="close-btn">✕</button>
+                </div>
+                <div class="settings-content">
+                    <div class="settings-section">
+                        <h4>Обои</h4>
+                        <div class="wallpaper-selector">
+                            <div class="wallpaper-option active" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+                            <div class="wallpaper-option" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
+                            <div class="wallpaper-option" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
+                        </div>
+                    </div>
+                    <div class="settings-section">
+                        <h4>Тема</h4>
+                        <div class="theme-selector">
+                            <button class="theme-option active" data-theme="light">☀️ Светлая</button>
+                            <button class="theme-option" data-theme="dark">🌙 Темная</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/desktop.js"></script>
+    <script src="js/window_manager.js"></script>
+    <script src="js/filemanager.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/browser.js"></script>
+    <script src="js/ide.js"></script>
+    <script src="js/chat.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

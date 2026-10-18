@@ -1,0 +1,170 @@
+/* ====================
+   Стили компонента: Редактор кода
+   ==================== */
+
+.ide {
+    width: 900px;
+    height: 600px;
+    display: flex;
+}
+
+.ide-sidebar {
+    width: 220px;
+    border-right: 1px solid var(--bg-light-secondary);
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-light-secondary);
+}
+
+.ide.dark-mode .ide-sidebar {
+    background: var(--bg-dark-secondary);
+    border-color: var(--glass-border-dark);
+}
+
+.sidebar-header {
+    padding: 15px;
+    border-bottom: 1px solid var(--bg-light-secondary);
+}
+
+.ide.dark-mode .sidebar-header {
+    border-color: var(--glass-border-dark);
+}
+
+.sidebar-files {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+.file-tree {
+    padding-left: 15px;
+}
+
+.file-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    color: var(--text-primary);
+    transition: all 0.2s ease;
+}
+
+.file-item:hover {
+    background: rgba(102, 126, 234, 0.1);
+}
+
+.file-item.active {
+    background: var(--primary-color);
+    color: var(--bg-light);
+}
+
+.file-icon {
+    width: 16px;
+    text-align: center;
+}
+
+.ide-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.ide-header {
+    padding: 10px 15px;
+    border-bottom: 1px solid var(--bg-light-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ide.dark-mode .ide-header {
+    border-color: var(--glass-border-dark);
+}
+
+.ide-tabs {
+    display: flex;
+    gap: 5px;
+}
+
+.ide-tab {
+    padding: 8px 16px;
+    background: var(--bg-light-secondary);
+    border-radius: 6px 6px 0 0;
+    cursor: pointer;
+    font-size: 13px;
+    color: var(--text-secondary);
+    transition: all 0.2s ease;
+}
+
+.ide-tab:hover {
+    background: rgba(102, 126, 234, 0.1);
+}
+
+.ide-tab.active {
+    background: var(--bg-light);
+    color: var(--primary-color);
+}
+
+.ide-editor {
+    flex: 1;
+    padding: 20px;
+    background: var(--bg-light);
+    position: relative;
+}
+
+.ide.dark-mode .ide-editor {
+    background: #1e1e2e;
+}
+
+.code-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.code-editor {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: transparent;
+    color: #d4d4d4;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    padding: 20px;
+    outline: none;
+    resize: none;
+}
+
+.ide-footer {
+    padding: 10px 15px;
+    border-top: 1px solid var(--bg-light-secondary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.ide.dark-mode .ide-footer {
+    border-color: var(--glass-border-dark);
+}
+
+.ide-status {
+    display: flex;
+    gap: 15px;
+}
+
+.status-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.status-item span {
+    color: var(--primary-color);
+}

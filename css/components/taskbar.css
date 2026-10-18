@@ -1,0 +1,283 @@
+/* ====================
+   Стили компонента: Панель задач
+   ==================== */
+
+.taskbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 50px;
+    background: var(--bg-light);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    transition: all 0.3s ease;
+}
+
+.taskbar.dark-mode {
+    background: var(--bg-dark-secondary);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.taskbar-start {
+    display: flex;
+    align-items: center;
+}
+
+.start-btn {
+    width: 40px;
+    height: 40px;
+    background: var(--primary-color);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.start-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+.start-icon {
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(135deg, #f093fb, #4facfe);
+    border-radius: 4px;
+    position: relative;
+}
+
+.start-icon::before,
+.start-icon::after {
+    content: '';
+    position: absolute;
+    background: var(--bg-light);
+}
+
+.start-icon::before {
+    width: 6px;
+    height: 6px;
+    top: 3px;
+    left: 3px;
+    border-radius: 50%;
+}
+
+.start-icon::after {
+    width: 10px;
+    height: 10px;
+    bottom: 3px;
+    right: 3px;
+    border-radius: 50%;
+}
+
+.taskbar-apps {
+    flex: 1;
+    display: flex;
+    gap: 8px;
+    padding-left: 20px;
+    overflow-x: auto;
+    max-width: 60%;
+}
+
+.taskbar-apps::-webkit-scrollbar {
+    height: 4px;
+}
+
+.taskbar-apps::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.taskbar-apps::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 2px;
+}
+
+.taskbar-app {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.taskbar-app:hover {
+    background: var(--bg-light-secondary);
+}
+
+.taskbar-app.active {
+    background: var(--bg-light-secondary);
+    border-top: 2px solid var(--primary-color);
+}
+
+.taskbar-app-icon {
+    font-size: 16px;
+}
+
+.taskbar-app-name {
+    color: var(--text-primary);
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.taskbar.dark-mode .taskbar-app-name {
+    color: var(--text-light);
+}
+
+.taskbar-tray {
+    display: flex;
+    gap: 15px;
+    padding-right: 20px;
+}
+
+.tray-item {
+    cursor: pointer;
+    font-size: 16px;
+    padding: 5px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.tray-item:hover {
+    background: var(--bg-light-secondary);
+}
+
+.taskbar.dark-mode .tray-item:hover {
+    background: var(--bg-dark-secondary);
+}
+
+.clock {
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.taskbar.dark-mode .clock {
+    color: var(--text-light);
+}
+
+/* Start Menu */
+
+.start-menu {
+    position: fixed;
+    bottom: 60px;
+    left: 20px;
+    width: 350px;
+    max-height: 60vh;
+    background: var(--bg-light);
+    border-radius: 16px 16px 0 0;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    display: none;
+    flex-direction: column;
+    animation: fadeInUp 0.3s ease;
+}
+
+.start-menu.active {
+    display: flex;
+}
+
+.start-menu.dark-mode {
+    background: var(--bg-dark-secondary);
+}
+
+.start-content {
+    padding: 20px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.start-search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    background: var(--bg-light-secondary);
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.start-search span {
+    color: var(--text-secondary);
+}
+
+.start-search input {
+    flex: 1;
+    border: none;
+    background: none;
+    outline: none;
+    font-size: 15px;
+    color: var(--text-primary);
+}
+
+.start-list h3 {
+    color: var(--text-secondary);
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.start-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--text-primary);
+    font-size: 14px;
+}
+
+.start-item:hover {
+    background: var(--bg-light-secondary);
+}
+
+.start-list.dark-mode .start-item:hover {
+    background: var(--bg-dark-secondary);
+}
+
+.start-list.dark-mode .start-item {
+    color: var(--text-light);
+}
+
+.start-footer {
+    padding: 15px 20px;
+    border-top: 1px solid var(--bg-light-secondary);
+    display: flex;
+    justify-content: flex-end;
+}
+
+.power-btn {
+    width: 36px;
+    height: 36px;
+    background: var(--error-color);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.power-btn:hover {
+    transform: scale(1.1);
+}
+
+.power-btn span {
+    color: var(--bg-light);
+    font-size: 18px;
+}

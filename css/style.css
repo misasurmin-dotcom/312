@@ -1,0 +1,245 @@
+/* ====================
+   Основные стили WebOS
+   ==================== */
+
+:root {
+    --primary-color: #667eea;
+    --secondary-color: #764ba2;
+    --accent-color: #f093fb;
+    --success-color: #43e97b;
+    --error-color: #f5576c;
+    --warning-color: #fee140;
+    --info-color: #4facfe;
+    --text-primary: #1a1a2e;
+    --text-secondary: #6e6e80;
+    --text-light: #e0e0e0;
+    --bg-light: #ffffff;
+    --bg-light-secondary: #f8f9fa;
+    --bg-dark: #1a1a2e;
+    --bg-dark-secondary: #16213e;
+    --bg-glass: rgba(255, 255, 255, 0.1);
+    --bg-glass-dark: rgba(0, 0, 0, 0.3);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --glass-border-dark: rgba(255, 255, 255, 0.1);
+    --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    --shadow-dark: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+    --window-radius: 12px;
+    --icon-size: 48px;
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    overflow: hidden;
+    user-select: none;
+    transition: background 0.5s ease;
+}
+
+/* ====================
+   Экран авторизации
+   ==================== */
+
+.auth-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    z-index: 9999;
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 450px;
+    padding: 20px;
+}
+
+.auth-card {
+    background: var(--bg-light);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: var(--shadow);
+    animation: fadeInUp 0.6s ease;
+}
+
+.auth-card.dark-mode {
+    background: var(--bg-dark-secondary);
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    animation: pulse 2s infinite;
+}
+
+.logo h1 {
+    color: var(--text-primary);
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.auth-card.dark-mode .logo h1 {
+    color: var(--text-light);
+}
+
+.auth-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.auth-tab {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    background: var(--bg-light-secondary);
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--text-secondary);
+    transition: all 0.3s ease;
+}
+
+.auth-tab.active {
+    background: var(--primary-color);
+    color: var(--bg-light);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.auth-content {
+    display: none;
+}
+
+.auth-content.active {
+    display: block;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.auth-form input {
+    padding: 14px 18px;
+    border: 2px solid var(--bg-light-secondary);
+    border-radius: 10px;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    background: var(--bg-light-secondary);
+}
+
+.auth-form input:focus {
+    border-color: var(--primary-color);
+}
+
+.auth-form.dark-mode input {
+    background: var(--bg-dark-secondary);
+    border-color: var(--glass-border-dark);
+    color: var(--text-light);
+}
+
+.auth-form .btn-primary {
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background: var(--primary-color);
+    color: var(--bg-light);
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.auth-form .btn-primary:hover {
+    background: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.auth-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+
+.auth-footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.auth-footer a:hover {
+    color: var(--secondary-color);
+}
+
+.social-auth {
+    margin-top: 25px;
+    display: flex;
+    gap: 15px;
+}
+
+.btn-social {
+    flex: 1;
+    padding: 12px;
+    border: 2px solid var(--bg-light-secondary);
+    border-radius: 10px;
+    background: var(--bg-light-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.btn-social:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-telegram:hover {
+    background: #0088cc;
+    color: var(--bg-light);
+    border-color: #0088cc;
+}
+
+.btn-discord:hover {
+    background: #5865F2;
+    color: var(--bg-light);
+    border-color: #5865F2;
+}
+
+/* ====================
+   Основной интерфейс ОС
+   ==================== */
+
+.os-interface {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}

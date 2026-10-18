@@ -1,0 +1,60 @@
+/* ====================
+   Стили компонента: Терминал
+   ==================== */
+
+.terminal {
+    width: 700px;
+    height: 450px;
+    background: #1e1e2e;
+    color: #d4d4d4;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    overflow: hidden;
+}
+
+.terminal-header {
+    padding: 8px 12px;
+    background: #313244;
+    border-bottom: 1px solid #45475a;
+    display: flex;
+    gap: 8px;
+}
+
+.terminal-tabs {
+    display: flex;
+    gap: 5px;
+}
+
+.terminal-tab {
+    padding: 4px 10px;
+    background: #1e1e2e;
+    border-radius: 4px 4px 0 0;
+    font-size: 12px;
+}
+
+.terminal-content {
+    flex: 1;
+    padding: 10px;
+    overflow: auto;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.terminal-input-line {
+    display: flex;
+    margin-top: 10px;
+}
+
+.terminal-prompt {
+    color: #50fa7b;
+    margin-right: 8px;
+}
+
+.terminal-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: #f8f8f2;
+    font-family: inherit;
+    font-size: inherit;
+    outline: none;
+}
